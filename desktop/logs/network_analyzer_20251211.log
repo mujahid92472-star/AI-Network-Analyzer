@@ -1,0 +1,35 @@
+2025-12-11 22:27:23 │ INFO     │ network_analyzer │ init_config:275 │ Configuration file created: config.yaml
+2025-12-11 22:29:13 │ INFO     │ network_analyzer │ scan:183 │ Starting scan of target: 192.168.1.1
+2025-12-11 22:29:13 │ INFO     │ network_analyzer │ scan:197 │ Scan completed (stub)
+2025-12-11 22:36:36 │ INFO     │ network_analyzer │ scan:183 │ Starting scan of target: 192.168.1.1
+2025-12-11 22:36:36 │ INFO     │ network_analyzer │ scan:197 │ Scan completed (stub)
+2025-12-11 22:51:18 │ INFO     │ network_analyzer │ discover:285 │ Starting host discovery on 127.0.0.1 using icmp method
+2025-12-11 22:51:18 │ INFO     │ network_scanner │ __init__:164 │ Network scanner initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 22:51:18 │ INFO     │ network_scanner │ discover_hosts:329 │ Starting host discovery on 127.0.0.1 using ICMP_ECHO
+2025-12-11 22:51:19 │ INFO     │ network_scanner │ discover_hosts:433 │ Discovery complete: 1 hosts up, 0 down in 0.58s
+2025-12-11 22:51:45 │ INFO     │ network_analyzer │ discover:285 │ Starting host discovery on 192.168.1.0/28 using auto method
+2025-12-11 22:51:45 │ INFO     │ network_scanner │ __init__:164 │ Network scanner initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 22:51:45 │ INFO     │ network_scanner │ discover_hosts:329 │ Starting host discovery on 192.168.1.0/28 using AUTO
+2025-12-11 22:52:14 │ INFO     │ network_scanner │ discover_hosts:433 │ Discovery complete: 0 hosts up, 16 down in 29.14s
+2025-12-11 22:52:14 │ INFO     │ network_analyzer │ discover:319 │ Results saved to test_discovery.json
+2025-12-11 22:59:13 │ INFO     │ network_analyzer │ discover:285 │ Starting host discovery on 192.168.100.0/24 using auto method
+2025-12-11 22:59:13 │ INFO     │ network_scanner │ __init__:164 │ Network scanner initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 22:59:13 │ INFO     │ network_scanner │ discover_hosts:329 │ Starting host discovery on 192.168.100.0/24 using AUTO
+2025-12-11 23:01:36 │ INFO     │ network_scanner │ discover_hosts:433 │ Discovery complete: 2 hosts up, 254 down in 142.54s
+2025-12-11 23:07:40 │ INFO     │ network_analyzer │ discover:285 │ Starting host discovery on 192.168.100.0/24 using arp method
+2025-12-11 23:07:40 │ INFO     │ network_scanner │ __init__:164 │ Network scanner initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 23:07:40 │ INFO     │ network_scanner │ discover_hosts:329 │ Starting host discovery on 192.168.100.0/24 using ARP
+2025-12-11 23:10:17 │ INFO     │ network_scanner │ discover_hosts:433 │ Discovery complete: 3 hosts up, 253 down in 157.10s
+2025-12-11 23:16:08 │ INFO     │ network_analyzer │ scan:205 │ Starting tcp scan of target: 192.168.100.1
+2025-12-11 23:16:08 │ INFO     │ port_scanner │ __init__:232 │ Port scanner initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 23:16:08 │ INFO     │ port_scanner │ scan_ports:357 │ Starting TCP_CONNECT scan on 192.168.100.1
+2025-12-11 23:18:48 │ INFO     │ port_scanner │ scan_ports:438 │ Scan complete: 1 host(s), 3 open port(s) in 159.47s
+2025-12-11 23:25:44 │ INFO     │ network_analyzer │ services:497 │ Starting service detection on 192.168.100.1
+2025-12-11 23:25:44 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 23:25:44 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.1
+2025-12-11 23:25:47 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.1: 0 services, 0 CPEs
+2025-12-11 23:25:47 │ INFO     │ network_analyzer │ services:532 │ Results saved to services.json
+2025-12-11 23:32:27 │ INFO     │ network_analyzer │ services:509 │ Starting service detection on 192.168.100.1
+2025-12-11 23:32:27 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-11 23:32:27 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.1
+2025-12-11 23:35:27 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.1: 4 services, 1 CPEs

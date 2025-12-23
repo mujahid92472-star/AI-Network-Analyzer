@@ -1,0 +1,703 @@
+2025-12-21 14:52:25 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 14:52:25 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 14:53:15 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 14:53:16 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 14:53:16 │ INFO     │ vuln_scanner │ __init__:192 │ Vulnerability scanner initialized (no API key - slower rate limit)
+2025-12-21 14:53:16 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 14:53:16 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 14:53:17 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 14:53:22 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 14:53:35 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 14:53:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 14:53:58 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 14:53:58 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 14:53:58 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 14:54:05 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 14:54:12 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 14:54:17 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 14:54:23 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 14:54:23 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 14:54:23 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 14:54:29 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 14:54:35 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 14:54:41 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 14:54:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 14:54:47 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 14:54:47 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 14:54:53 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 14:54:59 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 14:55:11 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 14:55:11 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 14:55:11 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 14:55:18 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 14:55:18 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 14:55:23 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 14:55:23 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 14:55:29 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 14:55:35 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 14:55:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 14:55:47 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 14:55:47 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 14:55:52 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 14:55:59 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 14:56:11 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 14:56:11 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 14:56:11 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 14:56:17 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 14:56:17 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 14:56:23 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 14:56:29 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 14:56:29 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 14:56:35 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 14:56:35 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 14:59:11 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 14:59:11 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 14:59:59 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 14:59:59 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 14:59:59 │ INFO     │ vuln_scanner │ __init__:192 │ Vulnerability scanner initialized (no API key - slower rate limit)
+2025-12-21 14:59:59 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 14:59:59 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 15:00:00 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 15:00:06 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 15:00:18 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 15:00:30 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 15:00:41 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 15:00:41 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 15:00:41 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 15:00:48 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:00:54 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 15:01:00 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 15:01:07 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:01:07 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 15:01:07 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 15:01:11 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:01:18 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 15:01:24 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 15:01:30 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:01:30 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 15:01:30 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 15:01:36 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:01:42 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 15:01:54 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:01:54 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 15:01:54 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 15:02:01 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 15:02:01 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 15:02:06 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 15:02:06 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 15:02:12 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:02:18 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 15:02:30 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:02:30 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 15:02:30 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 15:02:36 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:02:42 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 15:02:54 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:02:54 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 15:02:54 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 15:03:00 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 15:03:00 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 15:03:07 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 15:03:11 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 15:03:11 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 15:03:18 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 15:03:18 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 15:24:21 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 15:24:22 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 15:25:14 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 15:25:14 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 15:25:14 │ INFO     │ vuln_scanner │ __init__:192 │ Vulnerability scanner initialized (no API key - slower rate limit)
+2025-12-21 15:25:14 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 15:25:14 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 15:25:15 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 15:25:20 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 15:25:33 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 15:25:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 15:25:56 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 15:25:56 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 15:25:56 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 15:26:03 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:26:09 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 15:26:15 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 15:26:21 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:26:21 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 15:26:21 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 15:26:26 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:26:33 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 15:26:39 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 15:26:44 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:26:44 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 15:26:44 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 15:26:51 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:26:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 15:27:09 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:27:09 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 15:27:09 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 15:27:15 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 15:27:15 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 15:27:21 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 15:27:21 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 15:27:27 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:27:32 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 15:27:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:27:45 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 15:27:45 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 15:27:51 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:27:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 15:28:09 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:28:09 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 15:28:09 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 15:28:15 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 15:28:15 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 15:28:21 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 15:28:27 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 15:28:27 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 15:28:33 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 15:28:33 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 15:52:01 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 15:52:01 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 12.168.100.152
+2025-12-21 15:52:05 │ INFO     │ service_detector │ detect_services:422 │ Host 12.168.100.152: 0 services, 0 CPEs
+2025-12-21 15:53:28 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 15:53:28 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 15:54:18 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 15:54:18 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 15:54:18 │ INFO     │ vuln_scanner │ __init__:192 │ Vulnerability scanner initialized (no API key - slower rate limit)
+2025-12-21 15:54:18 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 15:54:18 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 15:54:19 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 15:54:24 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 15:54:37 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 15:54:52 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 15:55:01 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 15:55:01 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 15:55:01 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 15:55:06 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:55:13 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 15:55:19 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 15:55:25 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:55:25 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 15:55:25 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 15:55:30 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:55:37 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 15:55:43 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 15:55:49 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:55:49 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 15:55:49 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 15:55:54 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:56:01 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 15:56:13 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:56:13 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 15:56:13 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 15:56:19 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 15:56:19 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 15:56:25 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 15:56:25 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 15:56:31 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:56:37 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 15:56:48 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:56:48 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 15:56:48 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 15:56:55 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 15:57:01 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 15:57:12 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 15:57:12 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 15:57:12 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 15:57:19 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 15:57:19 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 15:57:25 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 15:57:31 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 15:57:31 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 15:57:37 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 15:57:37 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 16:44:49 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 16:44:50 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 16:45:37 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 16:45:38 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 16:45:38 │ INFO     │ vuln_scanner │ __init__:192 │ Vulnerability scanner initialized (no API key - slower rate limit)
+2025-12-21 16:45:38 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 16:45:38 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 16:45:39 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 16:45:44 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 16:45:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 16:46:08 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 16:46:21 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 16:46:21 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 16:46:21 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 16:46:26 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:46:33 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 16:46:39 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 16:46:44 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:46:44 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 16:46:44 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 16:46:51 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:46:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 16:47:02 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 16:47:09 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:47:09 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 16:47:09 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 16:47:14 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:47:21 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 16:47:33 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:47:33 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 16:47:33 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 16:47:39 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 16:47:39 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 16:47:45 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 16:47:45 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 16:47:50 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:47:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 16:48:09 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:48:09 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 16:48:09 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 16:48:14 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:48:21 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 16:48:33 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:48:33 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 16:48:33 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 16:48:38 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 16:48:38 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 16:48:45 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 16:48:50 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 16:48:50 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 16:48:57 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 16:48:57 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 16:55:48 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 16:55:48 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 16:56:36 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 16:56:36 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 16:56:36 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 16:56:36 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 16:56:36 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 16:56:39 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 16:56:39 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 16:56:40 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 16:56:41 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 16:56:43 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 16:56:43 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 16:56:43 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 16:56:43 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:56:44 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 16:56:44 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 16:56:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:56:45 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 16:56:45 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 16:56:46 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:56:46 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 16:56:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 16:56:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:56:47 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 16:56:47 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 16:56:48 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:56:48 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 16:56:50 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:56:50 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 16:56:50 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 16:56:51 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 16:56:51 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 16:56:51 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 16:56:51 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 16:56:52 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:56:52 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 16:56:53 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:56:53 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 16:56:53 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 16:56:54 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 16:56:55 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 16:56:56 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 16:56:56 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 16:56:56 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 16:56:57 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 16:56:57 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 16:56:57 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 16:56:58 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 16:56:58 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 16:56:58 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 16:56:58 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 16:57:02 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 16:57:02 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 16:57:02 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 17:07:20 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 17:07:20 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 17:08:08 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 17:08:08 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 17:08:08 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 17:08:08 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 17:08:08 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 17:08:10 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 17:08:10 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 17:08:11 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 17:08:13 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 17:08:14 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 17:08:14 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 17:08:14 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:08:14 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:08:15 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:08:16 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:08:16 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:08:16 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:08:16 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:08:17 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:08:17 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:08:18 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:08:19 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:08:19 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:08:19 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 17:08:19 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:08:20 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 17:08:21 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:08:21 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 17:08:21 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 17:08:22 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 17:08:22 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 17:08:23 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 17:08:23 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:08:23 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:08:24 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:08:25 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:08:25 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:08:25 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:08:26 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:08:26 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:08:28 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:08:28 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:08:28 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 17:08:29 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 17:08:29 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 17:08:29 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 17:08:30 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 17:08:30 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 17:08:31 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 17:08:31 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 17:08:32 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 17:08:32 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 17:08:32 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 17:13:53 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 17:13:53 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 17:14:41 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 17:14:41 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 17:14:41 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 17:14:41 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 17:14:41 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 17:14:42 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 17:14:42 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 17:14:44 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 17:14:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 17:14:46 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 17:14:46 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 17:14:46 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:14:47 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:14:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:14:48 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:14:49 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:14:49 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:14:49 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:14:49 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:14:50 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:14:50 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:14:51 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:14:51 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:14:51 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 17:14:52 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:14:52 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 17:14:53 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:14:53 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 17:14:53 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 17:14:54 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 17:14:54 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 17:14:55 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 17:14:55 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:14:55 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:14:56 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:14:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:14:57 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:14:57 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:14:58 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:14:58 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:14:59 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:14:59 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:14:59 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 17:15:00 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 17:15:00 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 17:15:01 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 17:15:01 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 17:15:01 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 17:15:02 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 17:15:02 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 17:15:02 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 17:15:02 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 17:15:02 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 17:15:50 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 17:15:50 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 17:16:38 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 17:16:38 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 17:16:38 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 17:16:38 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 17:16:38 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 17:16:40 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 17:16:40 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 17:16:41 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 17:16:42 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 17:16:43 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 17:16:43 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 17:16:43 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:16:44 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:16:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:16:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:16:46 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:16:46 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:16:46 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:16:47 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:16:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:16:48 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:16:49 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:16:49 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:16:49 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 17:16:49 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:16:50 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 17:16:51 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:16:51 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 17:16:51 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 17:16:52 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 17:16:52 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 17:16:53 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 17:16:53 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:16:53 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:16:54 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:16:55 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:16:55 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:16:55 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:16:55 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:16:56 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:16:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:16:57 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:16:57 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 17:16:58 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 17:16:58 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 17:16:59 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 17:16:59 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 17:16:59 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 17:17:00 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 17:17:00 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 17:17:02 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 17:17:02 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 17:17:02 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 17:22:57 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 17:22:57 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 17:23:45 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 17:23:46 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 17:23:46 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 17:23:46 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 17:23:46 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 17:23:47 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 17:23:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 17:23:48 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 17:23:49 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 17:23:51 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 17:23:51 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 17:23:51 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:23:51 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:23:52 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:23:52 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:23:53 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:23:53 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:23:53 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:23:54 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:23:54 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:23:55 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:23:56 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:23:56 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:23:56 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 17:23:56 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:23:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 17:23:58 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:23:58 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 17:23:58 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 17:23:59 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 17:23:59 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 17:24:00 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 17:24:00 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:24:00 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:24:01 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:24:02 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:24:02 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:24:02 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:24:03 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:24:03 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:24:05 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:24:05 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:24:05 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 17:24:05 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 17:24:05 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 17:24:06 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 17:24:06 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 17:24:06 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 17:24:07 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 17:24:07 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 17:24:09 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 17:24:09 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 17:24:09 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 17:36:54 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 17:36:54 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 17:37:42 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 17:37:42 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 17:37:42 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 17:37:42 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 17:37:42 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 17:37:43 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 17:37:43 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 17:37:45 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 17:37:46 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 17:37:47 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 17:37:47 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 17:37:47 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:37:48 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:37:48 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:37:49 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:37:50 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:37:50 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:37:50 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 17:37:50 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:37:51 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 17:37:51 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 17:37:52 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:37:52 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 17:37:52 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 17:37:52 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:37:53 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 17:37:54 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:37:54 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 17:37:54 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 17:37:55 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 17:37:55 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 17:37:56 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 17:37:56 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:37:56 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:37:57 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:37:58 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:37:58 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:37:58 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 17:37:59 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 17:37:59 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 17:38:00 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 17:38:00 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 17:38:00 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 17:38:01 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 17:38:01 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 17:38:02 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 17:38:03 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 17:38:03 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 17:38:04 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 17:38:04 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 17:38:05 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 17:38:05 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 17:38:05 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 18:05:33 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 18:05:33 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 18:06:22 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 18:06:22 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 18:06:22 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 18:06:22 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 18:06:22 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 18:06:23 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 18:06:23 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 18:06:25 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 18:06:26 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 18:06:27 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 18:06:27 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 18:06:27 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 18:06:28 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:06:28 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 18:06:29 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 18:06:30 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:06:30 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 18:06:30 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 18:06:30 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:06:31 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 18:06:31 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 18:06:32 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:06:32 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 18:06:32 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 18:06:32 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:06:33 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 18:06:34 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:06:34 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 18:06:34 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 18:06:35 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 18:06:35 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 18:06:36 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 18:06:36 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 18:06:36 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:06:37 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 18:06:38 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:06:38 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 18:06:38 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 18:06:39 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:06:40 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 18:06:41 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:06:41 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 18:06:41 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 18:06:41 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 18:06:42 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 18:06:42 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 18:06:42 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 18:06:42 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 18:06:43 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 18:06:43 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 18:06:44 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 18:06:44 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 18:06:44 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...
+2025-12-21 18:08:18 │ INFO     │ service_detector │ __init__:302 │ Service detector initialized with nmap at: C:\Program Files (x86)\Nmap\nmap.EXE
+2025-12-21 18:08:18 │ INFO     │ service_detector │ detect_services:364 │ Starting service detection on 192.168.100.152
+2025-12-21 18:09:06 │ INFO     │ service_detector │ detect_services:422 │ Host 192.168.100.152: 18 services, 11 CPEs
+2025-12-21 18:09:06 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-21 18:09:06 │ INFO     │ vuln_scanner │ __init__:190 │ Vulnerability scanner initialized with NVD API key
+2025-12-21 18:09:06 │ INFO     │ vuln_scanner │ scan_host:211 │ Scanning 192.168.100.152 for vulnerabilities
+2025-12-21 18:09:06 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:vsftpd:vsftpd:2.3.4:*:*:*:*:*:*:*
+2025-12-21 18:09:07 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*
+2025-12-21 18:09:07 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd 2.3.4
+2025-12-21 18:09:09 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd vsftpd
+2025-12-21 18:09:10 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: vsftpd
+2025-12-21 18:09:11 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 19 CVEs via keyword search
+2025-12-21 18:09:11 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 19 CVEs for CPE: cpe:/a:vsftpd:vsftpd:2.3.4
+2025-12-21 18:09:11 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 18:09:12 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:09:12 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 18:09:13 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 18:09:14 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:09:14 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 18:09:14 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+2025-12-21 18:09:14 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:09:15 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux linux kernel
+2025-12-21 18:09:15 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: linux kernel
+2025-12-21 18:09:16 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:09:16 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/o:linux:linux_kernel
+2025-12-21 18:09:16 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*
+2025-12-21 18:09:16 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:09:17 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: postfix postfix
+2025-12-21 18:09:18 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:09:18 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postfix:postfix
+2025-12-21 18:09:18 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:isc:bind:9.4.2:*:*:*:*:*:*:*
+2025-12-21 18:09:19 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:isc:bind:9.4.2
+2025-12-21 18:09:19 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:apache:http_server:2.2.8:*:*:*:*:*:*:*
+2025-12-21 18:09:20 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:apache:http_server:2.2.8
+2025-12-21 18:09:20 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 18:09:20 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:09:21 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 18:09:22 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:09:22 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 18:09:22 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:samba:samba:*:*:*:*:*:*:*:*
+2025-12-21 18:09:23 │ WARNING  │ nvd_api │ _lookup_cpe_vulnerable:329 │ isVulnerable lookup failed: NVD API error: 404 | Details: {'response': ''}, trying basic lookup
+2025-12-21 18:09:23 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:474 │ Keyword search: samba samba
+2025-12-21 18:09:24 │ INFO     │ nvd_api │ _lookup_by_keyword_fallback:502 │ Found 20 CVEs via keyword search
+2025-12-21 18:09:24 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:samba:samba
+2025-12-21 18:09:24 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:proftpd:proftpd:1.3.1:*:*:*:*:*:*:*
+2025-12-21 18:09:25 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 18 CVEs for CPE: cpe:/a:proftpd:proftpd:1.3.1
+2025-12-21 18:09:25 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:mysql:mysql:5.0.51a-3ubuntu5:*:*:*:*:*:*:*
+2025-12-21 18:09:26 │ INFO     │ nvd_api │ lookup_by_cpe:292 │ Trying version wildcard: cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*
+2025-12-21 18:09:26 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 9 CVEs for CPE: cpe:/a:mysql:mysql:5.0.51a-3ubuntu5
+2025-12-21 18:09:26 │ INFO     │ nvd_api │ lookup_by_cpe:275 │ Looking up CVEs for CPE: cpe:2.3:a:postgresql:postgresql:8.3:*:*:*:*:*:*:*
+2025-12-21 18:09:27 │ INFO     │ nvd_api │ lookup_by_cpe:310 │ Found 20 CVEs for CPE: cpe:/a:postgresql:postgresql:8.3
+2025-12-21 18:09:27 │ INFO     │ vuln_scanner │ scan_host:303 │ Scan complete for 192.168.100.152: 206 CVEs found, risk score: 100.0
+2025-12-21 18:09:28 │ INFO     │ gemini_client │ __init__:96 │ Gemini client initialized with model: gemini-flash-lite-latest
+2025-12-21 18:09:28 │ INFO     │ threat_analyzer │ __init__:116 │ Gemini AI client initialized
+2025-12-21 18:09:28 │ INFO     │ threat_analyzer │ analyze:176 │ Running AI threat analysis...

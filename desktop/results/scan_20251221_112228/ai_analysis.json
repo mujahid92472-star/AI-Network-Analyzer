@@ -1,0 +1,18 @@
+{
+  "target": "192.168.100.152",
+  "assessed_at": "2025-12-21T11:22:32.543771",
+  "overall_risk_score": 0.0,
+  "threat_level": "MINIMAL",
+  "total_vulnerabilities": 0,
+  "critical_count": 0,
+  "high_count": 0,
+  "medium_count": 0,
+  "low_count": 0,
+  "exploitable_count": 0,
+  "exploit_available": [],
+  "ai_threat_summary": "",
+  "ai_risk_assessment": "",
+  "ai_attack_scenarios": [],
+  "ai_remediation_steps": [],
+  "ai_executive_summary": ""
+}

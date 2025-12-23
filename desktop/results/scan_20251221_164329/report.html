@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Scan Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --critical: #dc3545;
+            --high: #fd7e14;
+            --medium: #ffc107;
+            --low: #0d6efd;
+            --info: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+
+        .header .meta {
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #1a1a2e;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card .number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .stat-card .label {
+            color: #6c757d;
+            font-size: 0.85em;
+        }
+
+        .stat-card.critical .number {
+            color: var(--critical);
+        }
+
+        .stat-card.high .number {
+            color: var(--high);
+        }
+
+        .stat-card.medium .number {
+            color: var(--medium);
+        }
+
+        .stat-card.low .number {
+            color: var(--low);
+        }
+
+        .risk-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .risk-badge.critical {
+            background: var(--critical);
+        }
+
+        .risk-badge.high {
+            background: var(--high);
+        }
+
+        .risk-badge.medium {
+            background: var(--medium);
+        }
+
+        .risk-badge.low {
+            background: var(--low);
+        }
+
+        .risk-badge.minimal {
+            background: #28a745;
+        }
+
+        /* Desktop table */
+        .vuln-table {
+            display: block;
+        }
+
+        .vuln-cards {
+            display: none;
+        }
+
+        /* Responsive table wrapper */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -25px;
+            padding: 0 25px;
+        }
+
+        @media (max-width: 768px) {
+            .table-wrapper {
+                margin: 0 -15px;
+                padding: 0 15px;
+            }
+
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .severity-badge.critical {
+            background: #fce4e4;
+            color: var(--critical);
+        }
+
+        .severity-badge.high {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .severity-badge.medium {
+            background: #fff8e1;
+            color: #f57f17;
+        }
+
+        .severity-badge.low {
+            background: #e3f2fd;
+            color: var(--low);
+        }
+
+        .kev-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.7em;
+            font-weight: bold;
+            margin-left: 6px;
+            animation: kev-pulse 2s infinite;
+        }
+
+        @keyframes kev-pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Mobile-friendly vulnerability cards */
+        .vuln-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--info);
+        }
+
+        .vuln-card.critical {
+            border-left-color: var(--critical);
+        }
+
+        .vuln-card.high {
+            border-left-color: var(--high);
+        }
+
+        .vuln-card.medium {
+            border-left-color: var(--medium);
+        }
+
+        .vuln-card.low {
+            border-left-color: var(--low);
+        }
+
+        .vuln-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .vuln-card-id {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .vuln-card-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .recommendation {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--info);
+        }
+
+        .ai-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .ai-section h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .attack-scenario {
+            background: #fff;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--critical);
+        }
+
+        .chart-container {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stat-card .number {
+                font-size: 1.5em;
+            }
+
+            /* Hide table, show cards on mobile */
+            .vuln-table {
+                display: none;
+            }
+
+            .vuln-cards {
+                display: block;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🛡️ Security Scan Report</h1>
+        <div class="meta">
+            Generated: 2025-12-21 16:44:47 |
+            Targets: 192.168.100.152 |
+            Duration: N/A
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="card">
+        <h2>📊 Executive Summary</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">1</div>
+                <div class="label">Hosts</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">11</div>
+                <div class="label">Open Ports</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">11</div>
+                <div class="label">Services</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">206</div>
+                <div class="label">Vulns</div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card critical">
+                <div class="number">19</div>
+                <div class="label">🔴 Critical</div>
+            </div>
+            <div class="stat-card high">
+                <div class="number">50</div>
+                <div class="label">🟠 High</div>
+            </div>
+            <div class="stat-card medium">
+                <div class="number">104</div>
+                <div class="label">🟡 Medium</div>
+            </div>
+            <div class="stat-card low">
+                <div class="number">33</div>
+                <div class="label">🟢 Low</div>
+            </div>
+        </div>
+
+        <p style="text-align: center">
+            <strong>Risk Score:</strong> 100.0/100
+            <span class="risk-badge critical">CRITICAL</span>
+        </p>
+    </div>
+
+    <!-- AI Analysis Section -->
+    <div class="card">
+        <h2>🤖 AI Threat Analysis</h2>
+
+        <div class="ai-section">
+            <h3>🔍 Threat Summary</h3>
+            <p>The target system, 192.168.100.152, is running extremely outdated versions of Postfix and related mail components, exposing it to a severe array of known vulnerabilities dating back over a decade. The presence of a confirmed Critical severity SQL injection vulnerability alongside multiple High severity issues indicates that this host is highly susceptible to complete compromise via remote network attacks. Immediate isolation and patching are required before the system can be considered secure.</p>
+        </div>
+
+        <div class="ai-section">
+            <h3>📋 Executive Summary</h3>
+            <p>The system 192.168.100.152 is running severely outdated mail server software (Postfix) that is exposed to numerous critical security flaws, including a documented SQL Injection vulnerability (CVSS 10.0) and several High-risk issues allowing for remote compromise and unauthorized relaying. This host represents an immediate threat to the network integrity, as attackers could easily gain control of the server or use it to launch further attacks. Immediate emergency action is required to isolate the machine, upgrade all associated mail components to modern, supported versions, and enforce strict security configurations to eliminate this significant risk vector.</p>
+        </div>
+
+        <div class="ai-section">
+            <h3>⚔️ Potential Attack Scenarios</h3>
+            <div class="attack-scenario"><strong>Remote Code Execution via SQL Injection (Critical):</strong> Exploitation of CVE-2011-1720 in the SQLgrey Postfix greylisting service would allow an attacker to inject arbitrary SQL commands, potentially leading to the execution of operating system commands or the complete destruction/exfiltration of the greylisting database, paving the way for further host compromise.</div>
+            <div class="attack-scenario"><strong>Unauthenticated Mail Sending/Relay (High):</strong> Exploitation of CVE-2004-1088 (CRAM-MD5 replay) allows an attacker to bypass authentication mechanisms and use the server to send spam or launch denial-of-service attacks against other parties, leading to blacklisting of the network.</div>
+            <div class="attack-scenario"><strong>Denial of Service (DoS) and System Crash:</strong> Multiple vulnerabilities (e.g., CVE-2003-0540, CVE-2007-3791) can be triggered by sending malformed SMTP traffic to cause Postfix services to crash, rendering mail services inoperable for legitimate users.</div>
+            <div class="attack-scenario"><strong>Information Leakage/Local Privilege Escalation:</strong> Older vulnerabilities (e.g., CVE-2008-2937, CVE-2008-4977) related to file permissions and symlink attacks could allow a local user (if the scanner implies local context or if other services allow local shell access) to overwrite critical system files.</div>
+        </div>
+
+    </div>
+
+    <!-- Severity Chart -->
+    <div class="card">
+        <h2>📈 Severity Distribution</h2>
+        <div class="chart-container">
+            <canvas id="severityChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Vulnerabilities - Desktop Table -->
+    <div class="card">
+        <h2>🔍 Vulnerability Findings</h2>
+
+        <!-- Desktop Table View -->
+        <div class="vuln-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CVE ID</th>
+                        <th>Severity</th>
+                        <th>Score</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2001-0894" target="_blank">CVE-2001-0894</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>Vulnerability in Postfix SMTP server before 20010228-pl07, when configured to email the postmaster w...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2003-0468" target="_blank">CVE-2003-0468</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>Postfix 1.1.11 and earlier allows remote attackers to use Postfix to conduct &#34;bounce scans&#34; or DDos ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2003-0540" target="_blank">CVE-2003-0540</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>The address parser code in Postfix 1.1.12 and earlier allows remote attackers to cause a denial of s...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2004-1088" target="_blank">CVE-2004-1088</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.5</td>
+                        <td>Postfix server for Apple Mac OS X 10.3.6, when using CRAM-MD5, allows remote attackers to send mail ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2004-1113" target="_blank">CVE-2004-1113</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge critical">
+                                🔴 CRITICAL
+                            </span>
+                        </td>
+                        <td>10.0</td>
+                        <td>SQL injection vulnerability in SQLgrey Postfix greylisting service before 1.2.0 allows remote attack...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2004-0925" target="_blank">CVE-2004-0925</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>Postfix on Mac OS X 10.3.x through 10.3.5, with SMTPD AUTH enabled, does not properly clear the user...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2005-0337" target="_blank">CVE-2005-0337</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.5</td>
+                        <td>Postfix 2.1.3, when /proc/net/if_inet6 is not available and permit_mx_backup is enabled in smtpd_rec...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2005-1127" target="_blank">CVE-2005-1127</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>Format string vulnerability in the log function in Net::Server 0.87 and earlier, as used in Postfix ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2006-0213" target="_blank">CVE-2006-0213</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.6</td>
+                        <td>Kolab Server 2.0.1, 2.0.2 and development versions pre-2.1-20051215 and earlier, when authenticating...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2007-3791" target="_blank">CVE-2007-3791</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.5</td>
+                        <td>Buffer overflow in the w_read function in sockets.c in Cami Sardinha and Nigel Kukard policyd before...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2936" target="_blank">CVE-2008-2936</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.2</td>
+                        <td>Postfix before 2.3.15, 2.4 before 2.4.8, 2.5 before 2.5.4, and 2.6 before 2.6-20080814, when the ope...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2937" target="_blank">CVE-2008-2937</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge low">
+                                🟢 LOW
+                            </span>
+                        </td>
+                        <td>1.9</td>
+                        <td>Postfix 2.5 before 2.5.4 and 2.6 before 2.6-20080814 delivers to a mailbox file even when this file ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-3889" target="_blank">CVE-2008-3889</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge low">
+                                🟢 LOW
+                            </span>
+                        </td>
+                        <td>2.1</td>
+                        <td>Postfix 2.4 before 2.4.9, 2.5 before 2.5.5, and 2.6 before 2.6-20080902, when used with the Linux 2....</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-3646" target="_blank">CVE-2008-3646</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.8</td>
+                        <td>The Postfix configuration file in Mac OS X 10.5.5 causes Postfix to be network-accessible when mail ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-4977" target="_blank">CVE-2008-4977</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.9</td>
+                        <td>postfix_groups.pl in Postfix 2.5.2 allows local users to overwrite arbitrary files via a symlink att...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-2939" target="_blank">CVE-2009-2939</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.9</td>
+                        <td>The postfix.postinst script in the Debian GNU/Linux and Ubuntu postfix 2.5.5 package grants the post...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0230" target="_blank">CVE-2010-0230</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.5</td>
+                        <td>SUSE Linux Enterprise 10 SP3 (SLE10-SP3) and openSUSE 11.2 configures postfix to listen on all netwo...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-0411" target="_blank">CVE-2011-0411</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.8</td>
+                        <td>The STARTTLS implementation in Postfix 2.4.x before 2.4.16, 2.5.x before 2.5.12, 2.6.x before 2.6.9,...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-1720" target="_blank">CVE-2011-1720</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.8</td>
+                        <td>The SMTP server in Postfix before 2.5.13, 2.6.x before 2.6.10, 2.7.x before 2.7.4, and 2.8.x before ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2013-7176" target="_blank">CVE-2013-7176</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>config/filter.d/postfix.conf in the postfix filter in Fail2ban before 0.8.11 allows remote attackers...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-0122" target="_blank">CVE-2008-0122</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge critical">
+                                🔴 CRITICAL
+                            </span>
+                        </td>
+                        <td>10.0</td>
+                        <td>Off-by-one error in the inet_network function in libbind in ISC BIND 9.4.2 and earlier, as used in l...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0025" target="_blank">CVE-2009-0025</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.8</td>
+                        <td>BIND 9.6.0, 9.5.1, 9.5.0, 9.4.3, and earlier does not properly check the return value from the OpenS...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0265" target="_blank">CVE-2009-0265</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.5</td>
+                        <td>Internet Systems Consortium (ISC) BIND 9.6.0 and earlier does not properly check the return value fr...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0696" target="_blank">CVE-2009-0696</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.3</td>
+                        <td>The dns_db_findrdataset function in db.c in named in ISC BIND 9.4 before 9.4.3-P3, 9.5 before 9.5.1-...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-4022" target="_blank">CVE-2009-4022</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge low">
+                                🟢 LOW
+                            </span>
+                        </td>
+                        <td>2.6</td>
+                        <td>Unspecified vulnerability in ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P4, 9.5 before 9.5.2-P1,...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0097" target="_blank">CVE-2010-0097</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.3</td>
+                        <td>ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P5, 9.5 before 9.5.2-P2, 9.6 before 9.6.1-P3, and 9.7...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0290" target="_blank">CVE-2010-0290</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.0</td>
+                        <td>Unspecified vulnerability in ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P5, 9.5 before 9.5.2-P2,...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0382" target="_blank">CVE-2010-0382</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.6</td>
+                        <td>ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P5, 9.5 before 9.5.2-P2, 9.6 before 9.6.1-P3, and 9.7...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-3614" target="_blank">CVE-2010-3614</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.4</td>
+                        <td>named in ISC BIND 9.x before 9.6.2-P3, 9.7.x before 9.7.2-P3, 9.4-ESV before 9.4-ESV-R4, and 9.6-ESV...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-1910" target="_blank">CVE-2011-1910</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>Off-by-one error in named in ISC BIND 9.x before 9.7.3-P1, 9.8.x before 9.8.0-P2, 9.4-ESV before 9.4...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-4313" target="_blank">CVE-2011-4313</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>query.c in ISC BIND 9.0.x through 9.6.x, 9.4-ESV through 9.4-ESV-R5, 9.6-ESV through 9.6-ESV-R5, 9.7...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1033" target="_blank">CVE-2012-1033</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>The resolver in ISC BIND 9 through 9.8.1-P1 overwrites cached server names and TTL values in NS reco...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1667" target="_blank">CVE-2012-1667</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>8.5</td>
+                        <td>ISC BIND 9.x before 9.7.6-P1, 9.8.x before 9.8.3-P1, 9.9.x before 9.9.1-P1, and 9.4-ESV and 9.6-ESV ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-3817" target="_blank">CVE-2012-3817</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.8</td>
+                        <td>ISC BIND 9.4.x, 9.5.x, 9.6.x, and 9.7.x before 9.7.6-P2; 9.8.x before 9.8.3-P2; 9.9.x before 9.9.1-P...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-4244" target="_blank">CVE-2012-4244</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.8</td>
+                        <td>ISC BIND 9.x before 9.7.6-P3, 9.8.x before 9.8.3-P3, 9.9.x before 9.9.1-P3, and 9.4-ESV and 9.6-ESV ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-5166" target="_blank">CVE-2012-5166</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.8</td>
+                        <td>ISC BIND 9.x before 9.7.6-P4, 9.8.x before 9.8.3-P4, 9.9.x before 9.9.1-P4, and 9.4-ESV and 9.6-ESV ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2014-8500" target="_blank">CVE-2014-8500</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.8</td>
+                        <td>ISC BIND 9.0.x through 9.8.x, 9.9.0 through 9.9.6, and 9.10.0 through 9.10.1 does not limit delegati...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8000" target="_blank">CVE-2015-8000</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>db.c in named in ISC BIND 9.x before 9.9.8-P2 and 9.10.x before 9.10.3-P2 allows remote attackers to...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8461" target="_blank">CVE-2015-8461</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.1</td>
+                        <td>Race condition in resolver.c in named in ISC BIND 9.9.8 before 9.9.8-P2 and 9.10.3 before 9.10.3-P2 ...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8704" target="_blank">CVE-2015-8704</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.5</td>
+                        <td>apl_42.c in ISC BIND 9.x before 9.9.8-P3, 9.9.x, and 9.10.x before 9.10.3-P3 allows remote authentic...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2007-6420" target="_blank">CVE-2007-6420</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.3</td>
+                        <td>Cross-site request forgery (CSRF) vulnerability in the balancer-manager in mod_proxy_balancer for Ap...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-0455" target="_blank">CVE-2008-0455</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.3</td>
+                        <td>Cross-site scripting (XSS) vulnerability in the mod_negotiation module in the Apache HTTP Server 2.2...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-0456" target="_blank">CVE-2008-0456</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge low">
+                                🟢 LOW
+                            </span>
+                        </td>
+                        <td>2.6</td>
+                        <td>CRLF injection vulnerability in the mod_negotiation module in the Apache HTTP Server 2.2.6 and earli...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2364" target="_blank">CVE-2008-2364</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>5.0</td>
+                        <td>The ap_proxy_http_process_response function in mod_proxy_http.c in the mod_proxy module in the Apach...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2939" target="_blank">CVE-2008-2939</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.3</td>
+                        <td>Cross-site scripting (XSS) vulnerability in proxy_ftp.c in the mod_proxy_ftp module in Apache 2.0.63...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1195" target="_blank">CVE-2009-1195</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.9</td>
+                        <td>The Apache HTTP Server 2.2.11 and earlier 2.2 versions does not properly handle Options=IncludesNOEX...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0023" target="_blank">CVE-2009-0023</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>4.3</td>
+                        <td>The apr_strmatch_precompile function in strmatch/apr_strmatch.c in Apache APR-util before 1.3.5 allo...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1955" target="_blank">CVE-2009-1955</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.5</td>
+                        <td>The expat XML parser in the apr_xml_* interface in xml/apr_xml.c in Apache APR-util before 1.3.7, as...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1956" target="_blank">CVE-2009-1956</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge medium">
+                                🟡 MEDIUM
+                            </span>
+                        </td>
+                        <td>6.4</td>
+                        <td>Off-by-one error in the apr_brigade_vprintf function in Apache APR-util before 1.3.5 on big-endian p...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1890" target="_blank">CVE-2009-1890</a>
+                        </td>
+                        <td>
+                            <span class="severity-badge high">
+                                🟠 HIGH
+                            </span>
+                        </td>
+                        <td>7.1</td>
+                        <td>The stream_reqbody_cl function in mod_proxy_http.c in the mod_proxy module in the Apache HTTP Server...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mobile Card View -->
+        <div class="vuln-cards">
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2001-0894" target="_blank" class="vuln-card-id">CVE-2001-0894</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Vulnerability in Postfix SMTP server before 20010228-pl07, when configured to email the postmaster when SMTP errors cause the session to terminate, al...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2003-0468" target="_blank" class="vuln-card-id">CVE-2003-0468</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix 1.1.11 and earlier allows remote attackers to use Postfix to conduct &#34;bounce scans&#34; or DDos attacks of other hosts via an email address to the...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2003-0540" target="_blank" class="vuln-card-id">CVE-2003-0540</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The address parser code in Postfix 1.1.12 and earlier allows remote attackers to cause a denial of service (lock) via (1) a malformed envelope address...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2004-1088" target="_blank" class="vuln-card-id">CVE-2004-1088</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix server for Apple Mac OS X 10.3.6, when using CRAM-MD5, allows remote attackers to send mail without authentication by replaying authentication...</div>
+            </div>
+            <div class="vuln-card critical">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2004-1113" target="_blank" class="vuln-card-id">CVE-2004-1113</a>
+                    <span class="severity-badge critical">
+                        🔴 CRITICAL (10.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">SQL injection vulnerability in SQLgrey Postfix greylisting service before 1.2.0 allows remote attackers to execute arbitrary SQL commands via the (1) ...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2004-0925" target="_blank" class="vuln-card-id">CVE-2004-0925</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix on Mac OS X 10.3.x through 10.3.5, with SMTPD AUTH enabled, does not properly clear the username between authentication attempts, which allows...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2005-0337" target="_blank" class="vuln-card-id">CVE-2005-0337</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix 2.1.3, when /proc/net/if_inet6 is not available and permit_mx_backup is enabled in smtpd_recipient_restrictions, allows remote attackers to by...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2005-1127" target="_blank" class="vuln-card-id">CVE-2005-1127</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Format string vulnerability in the log function in Net::Server 0.87 and earlier, as used in Postfix Greylisting Policy Server (Postgrey) 1.18 and earl...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2006-0213" target="_blank" class="vuln-card-id">CVE-2006-0213</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.6)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Kolab Server 2.0.1, 2.0.2 and development versions pre-2.1-20051215 and earlier, when authenticating users via secure SMTP, stores authentication cred...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2007-3791" target="_blank" class="vuln-card-id">CVE-2007-3791</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Buffer overflow in the w_read function in sockets.c in Cami Sardinha and Nigel Kukard policyd before 1.81 for Postfix allows remote attackers to cause...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2936" target="_blank" class="vuln-card-id">CVE-2008-2936</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.2)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix before 2.3.15, 2.4 before 2.4.8, 2.5 before 2.5.4, and 2.6 before 2.6-20080814, when the operating system supports hard links to symlinks, all...</div>
+            </div>
+            <div class="vuln-card low">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2937" target="_blank" class="vuln-card-id">CVE-2008-2937</a>
+                    <span class="severity-badge low">
+                        🟢 LOW (1.9)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix 2.5 before 2.5.4 and 2.6 before 2.6-20080814 delivers to a mailbox file even when this file is not owned by the recipient, which allows local ...</div>
+            </div>
+            <div class="vuln-card low">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-3889" target="_blank" class="vuln-card-id">CVE-2008-3889</a>
+                    <span class="severity-badge low">
+                        🟢 LOW (2.1)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Postfix 2.4 before 2.4.9, 2.5 before 2.5.5, and 2.6 before 2.6-20080902, when used with the Linux 2.6 kernel, leaks epoll file descriptors during exec...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-3646" target="_blank" class="vuln-card-id">CVE-2008-3646</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The Postfix configuration file in Mac OS X 10.5.5 causes Postfix to be network-accessible when mail is sent from a local command-line tool, which allo...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-4977" target="_blank" class="vuln-card-id">CVE-2008-4977</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.9)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">postfix_groups.pl in Postfix 2.5.2 allows local users to overwrite arbitrary files via a symlink attack on the (1) /tmp/postfix_groups.stdout, (2) /tm...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-2939" target="_blank" class="vuln-card-id">CVE-2009-2939</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.9)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The postfix.postinst script in the Debian GNU/Linux and Ubuntu postfix 2.5.5 package grants the postfix user write access to /var/spool/postfix/pid, w...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0230" target="_blank" class="vuln-card-id">CVE-2010-0230</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">SUSE Linux Enterprise 10 SP3 (SLE10-SP3) and openSUSE 11.2 configures postfix to listen on all network interfaces, which might allow remote attackers ...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-0411" target="_blank" class="vuln-card-id">CVE-2011-0411</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The STARTTLS implementation in Postfix 2.4.x before 2.4.16, 2.5.x before 2.5.12, 2.6.x before 2.6.9, and 2.7.x before 2.7.3 does not properly restrict...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-1720" target="_blank" class="vuln-card-id">CVE-2011-1720</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The SMTP server in Postfix before 2.5.13, 2.6.x before 2.6.10, 2.7.x before 2.7.4, and 2.8.x before 2.8.3, when certain Cyrus SASL authentication meth...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2013-7176" target="_blank" class="vuln-card-id">CVE-2013-7176</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">config/filter.d/postfix.conf in the postfix filter in Fail2ban before 0.8.11 allows remote attackers to trigger the blocking of an arbitrary IP addres...</div>
+            </div>
+            <div class="vuln-card critical">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-0122" target="_blank" class="vuln-card-id">CVE-2008-0122</a>
+                    <span class="severity-badge critical">
+                        🔴 CRITICAL (10.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Off-by-one error in the inet_network function in libbind in ISC BIND 9.4.2 and earlier, as used in libc in FreeBSD 6.2 through 7.0-PRERELEASE, allows ...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0025" target="_blank" class="vuln-card-id">CVE-2009-0025</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">BIND 9.6.0, 9.5.1, 9.5.0, 9.4.3, and earlier does not properly check the return value from the OpenSSL DSA_verify function, which allows remote attack...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0265" target="_blank" class="vuln-card-id">CVE-2009-0265</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Internet Systems Consortium (ISC) BIND 9.6.0 and earlier does not properly check the return value from the OpenSSL EVP_VerifyFinal function, which all...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0696" target="_blank" class="vuln-card-id">CVE-2009-0696</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.3)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The dns_db_findrdataset function in db.c in named in ISC BIND 9.4 before 9.4.3-P3, 9.5 before 9.5.1-P3, and 9.6 before 9.6.1-P1, when configured as a ...</div>
+            </div>
+            <div class="vuln-card low">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-4022" target="_blank" class="vuln-card-id">CVE-2009-4022</a>
+                    <span class="severity-badge low">
+                        🟢 LOW (2.6)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Unspecified vulnerability in ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P4, 9.5 before 9.5.2-P1, 9.6 before 9.6.1-P2, and 9.7 beta before 9.7.0b3,...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0097" target="_blank" class="vuln-card-id">CVE-2010-0097</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.3)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P5, 9.5 before 9.5.2-P2, 9.6 before 9.6.1-P3, and 9.7.0 beta does not properly validate DNSSEC (1) NSEC...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0290" target="_blank" class="vuln-card-id">CVE-2010-0290</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Unspecified vulnerability in ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P5, 9.5 before 9.5.2-P2, 9.6 before 9.6.1-P3, and 9.7.0 beta, with DNSSEC ...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-0382" target="_blank" class="vuln-card-id">CVE-2010-0382</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.6)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.0.x through 9.3.x, 9.4 before 9.4.3-P5, 9.5 before 9.5.2-P2, 9.6 before 9.6.1-P3, and 9.7.0 beta handles out-of-bailiwick data accompanying...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2010-3614" target="_blank" class="vuln-card-id">CVE-2010-3614</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.4)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">named in ISC BIND 9.x before 9.6.2-P3, 9.7.x before 9.7.2-P3, 9.4-ESV before 9.4-ESV-R4, and 9.6-ESV before 9.6-ESV-R3 does not properly determine the...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-1910" target="_blank" class="vuln-card-id">CVE-2011-1910</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Off-by-one error in named in ISC BIND 9.x before 9.7.3-P1, 9.8.x before 9.8.0-P2, 9.4-ESV before 9.4-ESV-R4-P1, and 9.6-ESV before 9.6-ESV-R4-P1 allow...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2011-4313" target="_blank" class="vuln-card-id">CVE-2011-4313</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">query.c in ISC BIND 9.0.x through 9.6.x, 9.4-ESV through 9.4-ESV-R5, 9.6-ESV through 9.6-ESV-R5, 9.7.0 through 9.7.4, 9.8.0 through 9.8.1, and 9.9.0a1...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1033" target="_blank" class="vuln-card-id">CVE-2012-1033</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The resolver in ISC BIND 9 through 9.8.1-P1 overwrites cached server names and TTL values in NS records during the processing of a response to an A re...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1667" target="_blank" class="vuln-card-id">CVE-2012-1667</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (8.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.x before 9.7.6-P1, 9.8.x before 9.8.3-P1, 9.9.x before 9.9.1-P1, and 9.4-ESV and 9.6-ESV before 9.6-ESV-R7-P1 does not properly handle reso...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-3817" target="_blank" class="vuln-card-id">CVE-2012-3817</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.4.x, 9.5.x, 9.6.x, and 9.7.x before 9.7.6-P2; 9.8.x before 9.8.3-P2; 9.9.x before 9.9.1-P2; and 9.6-ESV before 9.6-ESV-R7-P2, when DNSSEC v...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-4244" target="_blank" class="vuln-card-id">CVE-2012-4244</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.x before 9.7.6-P3, 9.8.x before 9.8.3-P3, 9.9.x before 9.9.1-P3, and 9.4-ESV and 9.6-ESV before 9.6-ESV-R7-P3 allows remote attackers to ca...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-5166" target="_blank" class="vuln-card-id">CVE-2012-5166</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.x before 9.7.6-P4, 9.8.x before 9.8.3-P4, 9.9.x before 9.9.1-P4, and 9.4-ESV and 9.6-ESV before 9.6-ESV-R7-P4 allows remote attackers to ca...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2014-8500" target="_blank" class="vuln-card-id">CVE-2014-8500</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.8)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">ISC BIND 9.0.x through 9.8.x, 9.9.0 through 9.9.6, and 9.10.0 through 9.10.1 does not limit delegation chaining, which allows remote attackers to caus...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8000" target="_blank" class="vuln-card-id">CVE-2015-8000</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">db.c in named in ISC BIND 9.x before 9.9.8-P2 and 9.10.x before 9.10.3-P2 allows remote attackers to cause a denial of service (REQUIRE assertion fail...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8461" target="_blank" class="vuln-card-id">CVE-2015-8461</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.1)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Race condition in resolver.c in named in ISC BIND 9.9.8 before 9.9.8-P2 and 9.10.3 before 9.10.3-P2 allows remote attackers to cause a denial of servi...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8704" target="_blank" class="vuln-card-id">CVE-2015-8704</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">apl_42.c in ISC BIND 9.x before 9.9.8-P3, 9.9.x, and 9.10.x before 9.10.3-P3 allows remote authenticated users to cause a denial of service (INSIST as...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2007-6420" target="_blank" class="vuln-card-id">CVE-2007-6420</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.3)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Cross-site request forgery (CSRF) vulnerability in the balancer-manager in mod_proxy_balancer for Apache HTTP Server 2.2.x allows remote attackers to ...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-0455" target="_blank" class="vuln-card-id">CVE-2008-0455</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.3)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Cross-site scripting (XSS) vulnerability in the mod_negotiation module in the Apache HTTP Server 2.2.6 and earlier in the 2.2.x series, 2.0.61 and ear...</div>
+            </div>
+            <div class="vuln-card low">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-0456" target="_blank" class="vuln-card-id">CVE-2008-0456</a>
+                    <span class="severity-badge low">
+                        🟢 LOW (2.6)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">CRLF injection vulnerability in the mod_negotiation module in the Apache HTTP Server 2.2.6 and earlier in the 2.2.x series, 2.0.61 and earlier in the ...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2364" target="_blank" class="vuln-card-id">CVE-2008-2364</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (5.0)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The ap_proxy_http_process_response function in mod_proxy_http.c in the mod_proxy module in the Apache HTTP Server 2.0.63 and 2.2.8 does not limit the ...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2008-2939" target="_blank" class="vuln-card-id">CVE-2008-2939</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.3)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Cross-site scripting (XSS) vulnerability in proxy_ftp.c in the mod_proxy_ftp module in Apache 2.0.63 and earlier, and mod_proxy_ftp.c in the mod_proxy...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1195" target="_blank" class="vuln-card-id">CVE-2009-1195</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.9)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The Apache HTTP Server 2.2.11 and earlier 2.2 versions does not properly handle Options=IncludesNOEXEC in the AllowOverride directive, which allows lo...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0023" target="_blank" class="vuln-card-id">CVE-2009-0023</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (4.3)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The apr_strmatch_precompile function in strmatch/apr_strmatch.c in Apache APR-util before 1.3.5 allows remote attackers to cause a denial of service (...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1955" target="_blank" class="vuln-card-id">CVE-2009-1955</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.5)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The expat XML parser in the apr_xml_* interface in xml/apr_xml.c in Apache APR-util before 1.3.7, as used in the mod_dav and mod_dav_svn modules in th...</div>
+            </div>
+            <div class="vuln-card medium">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1956" target="_blank" class="vuln-card-id">CVE-2009-1956</a>
+                    <span class="severity-badge medium">
+                        🟡 MEDIUM (6.4)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">Off-by-one error in the apr_brigade_vprintf function in Apache APR-util before 1.3.5 on big-endian platforms allows remote attackers to obtain sensiti...</div>
+            </div>
+            <div class="vuln-card high">
+                <div class="vuln-card-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1890" target="_blank" class="vuln-card-id">CVE-2009-1890</a>
+                    <span class="severity-badge high">
+                        🟠 HIGH (7.1)
+                    </span>
+                </div>
+                <div class="vuln-card-desc">The stream_reqbody_cl function in mod_proxy_http.c in the mod_proxy module in the Apache HTTP Server before 2.3.3, when a reverse proxy is configured,...</div>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: #6c757d;">
+            Showing 50 of 100 vulnerabilities
+        </p>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="card">
+        <h2>💡 Recommendations</h2>
+        <div class="recommendation">🔴 URGENT: Address 19 critical vulnerabilities immediately. These pose severe risk and may allow remote code execution or complete system compromise.</div>
+        <div class="recommendation">🟠 HIGH PRIORITY: Remediate 50 high severity vulnerabilities. Schedule patches within the next 1-2 weeks.</div>
+        <div class="recommendation">🟡 MEDIUM PRIORITY: Plan to address 104 medium severity issues. Include in your next maintenance window.</div>
+        <div class="recommendation">🔒 HARDENING: Consider reducing attack surface by closing unnecessary ports. Found 11 open ports.</div>
+    </div>
+
+    <!-- Host Details -->
+    <div class="card">
+        <h2>🖥️ Host Details</h2>
+        <h3>192.168.100.152</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Port</th>
+                    <th>Service</th>
+                    <th>Product</th>
+                    <th>CVEs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>25/tcp</td>
+                    <td>smtp</td>
+                    <td>Postfix smtpd</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>53/tcp</td>
+                    <td>domain</td>
+                    <td>ISC BIND</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>80/tcp</td>
+                    <td>http</td>
+                    <td>Apache httpd</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>139/tcp</td>
+                    <td>netbios-ssn</td>
+                    <td>Samba smbd</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>445/tcp</td>
+                    <td>netbios-ssn</td>
+                    <td>Samba smbd</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>5432/tcp</td>
+                    <td>postgresql</td>
+                    <td>PostgreSQL DB</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>21/tcp</td>
+                    <td>ftp</td>
+                    <td>vsftpd</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>2121/tcp</td>
+                    <td>ftp</td>
+                    <td>ProFTPD</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>22/tcp</td>
+                    <td>ssh</td>
+                    <td>OpenSSH</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>23/tcp</td>
+                    <td>telnet</td>
+                    <td>Linux telnetd</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>3306/tcp</td>
+                    <td>mysql</td>
+                    <td>MySQL</td>
+                    <td>9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; padding: 30px; color: #6c757d;">
+        <p>Generated by AI Network Analyzer | December 21, 2025</p>
+        <p class="no-print">
+            <a href="javascript:window.print()">🖨️ Print Report</a>
+        </p>
+    </div>
+
+    <!-- Chart.js Script -->
+    <script>
+        const ctx = document.getElementById('severityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Critical', 'High', 'Medium', 'Low'],
+                datasets: [{
+                    data: [19, 50, 104, 33],
+            backgroundColor: ['#dc3545', '#fd7e14', '#ffc107', '#0d6efd'],
+            borderWidth: 0
+                }]
+            },
+            options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+        });
+    </script>
+</body>
+
+</html>

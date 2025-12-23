@@ -1,0 +1,35 @@
+2025-12-14 14:57:44 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-14 14:57:44 │ INFO     │ vuln_scanner │ __init__:183 │ Vulnerability scanner initialized
+2025-12-14 14:57:44 │ INFO     │ network_analyzer │ vulns:659 │ Looking up CVE: CVE-2021-44228
+2025-12-14 14:57:44 │ INFO     │ nvd_api │ lookup_by_cve_id:315 │ Looking up CVE: CVE-2021-44228
+2025-12-14 15:00:08 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-14 15:00:08 │ INFO     │ vuln_scanner │ __init__:183 │ Vulnerability scanner initialized
+2025-12-14 15:00:09 │ INFO     │ network_analyzer │ vulns:695 │ Looking up CVEs for CPE: cpe:2.3:a:dropbear_ssh_project:dropbear_ssh:2016.73:*:*:*:*:*:*:*
+2025-12-14 15:00:09 │ INFO     │ nvd_api │ lookup_by_cpe:266 │ Looking up CVEs for CPE: cpe:2.3:a:dropbear_ssh_project:dropbear_ssh:2016.73:*:*:*:*:*:*:*
+2025-12-14 15:00:11 │ INFO     │ nvd_api │ lookup_by_cpe:302 │ Found 10 CVEs for CPE: cpe:2.3:a:dropbear_ssh_project:dropbear_ssh:2016.73:*:*:*:*:*:*:*
+2025-12-14 15:18:21 │ INFO     │ offline_cve_db │ __init__:118 │ Offline CVE database initialized at: data/cve_cache/cves.db
+2025-12-14 15:20:17 │ INFO     │ nvd_api │ __init__:214 │ NVD API client initialized
+2025-12-14 15:20:17 │ INFO     │ vuln_scanner │ __init__:183 │ Vulnerability scanner initialized
+2025-12-14 15:20:17 │ INFO     │ network_analyzer │ vulns:659 │ Looking up CVE: CVE-2021-44228
+2025-12-14 15:20:17 │ INFO     │ nvd_api │ lookup_by_cve_id:315 │ Looking up CVE: CVE-2021-44228
+2025-12-14 15:51:24 │ INFO     │ network_analyzer │ report:876 │ Generating html report from test_scan.json
+2025-12-14 15:51:24 │ INFO     │ html_reporter │ _create_default_template:137 │ Created default template at: C:\Users\Ghulam Mohayudin\Projects\Others\AI-Network-Analyzer\src\reporting\templates\report.html
+2025-12-14 15:51:24 │ INFO     │ html_reporter │ __init__:121 │ HTML reporter initialized
+2025-12-14 15:51:24 │ INFO     │ html_reporter │ generate:182 │ Generating HTML report
+2025-12-14 15:51:24 │ INFO     │ html_reporter │ generate:195 │ Report saved to: test_report.html
+2025-12-14 15:51:24 │ INFO     │ network_analyzer │ report:958 │ Report generated: test_report.html
+2025-12-14 15:51:48 │ INFO     │ network_analyzer │ report:876 │ Generating pdf report from test_scan.json
+2025-12-14 15:51:48 │ INFO     │ html_reporter │ __init__:121 │ HTML reporter initialized
+2025-12-14 15:51:48 │ INFO     │ pdf_reporter │ generate:64 │ Generating PDF report
+2025-12-14 15:51:48 │ ERROR    │ pdf_reporter │ generate:87 │ PDF generation failed: 'NotImplementedType' object is not iterable
+2025-12-14 15:58:25 │ INFO     │ network_analyzer │ report:876 │ Generating csv report from test_scan.json
+2025-12-14 15:58:25 │ INFO     │ network_analyzer │ report:958 │ Report generated: test_report.csv
+2025-12-14 15:58:31 │ INFO     │ network_analyzer │ report:876 │ Generating md report from test_scan.json
+2025-12-14 15:58:31 │ INFO     │ network_analyzer │ report:958 │ Report generated: test_report.md
+2025-12-14 16:00:18 │ INFO     │ network_analyzer │ report:876 │ Generating pdf report from test_scan.json
+2025-12-14 16:00:18 │ INFO     │ html_reporter │ __init__:121 │ HTML reporter initialized
+2025-12-14 16:00:18 │ INFO     │ pdf_reporter │ generate:64 │ Generating PDF report
+2025-12-14 16:00:18 │ INFO     │ pdf_reporter │ generate:83 │ PDF report saved to: test_report.pdf
+2025-12-14 16:00:18 │ INFO     │ network_analyzer │ report:958 │ Report generated: test_report.pdf
+2025-12-14 16:02:36 │ INFO     │ network_analyzer │ report:876 │ Generating xml report from test_scan.json
+2025-12-14 16:02:36 │ INFO     │ network_analyzer │ report:990 │ Report generated: test_report.xml

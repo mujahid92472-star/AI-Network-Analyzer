@@ -1,0 +1,527 @@
+[
+  {
+    "ip_address": "192.168.100.152",
+    "hostname": null,
+    "mac_address": "00:0C:29:FA:DD:2A",
+    "vendor": "VMware",
+    "services": [
+      {
+        "port": 21,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "ftp",
+        "product": "vsftpd",
+        "version": "2.3.4",
+        "extra_info": "",
+        "full_version": "vsftpd 2.3.4",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:vsftpd:vsftpd:2.3.4",
+            "part": "a",
+            "vendor": "vsftpd",
+            "product": "vsftpd",
+            "version": "2.3.4",
+            "update": ""
+          }
+        ],
+        "banner": "220 (vsFTPd 2.3.4)",
+        "scripts": {
+          "banner": "220 (vsFTPd 2.3.4)"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 22,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "ssh",
+        "product": "OpenSSH",
+        "version": "4.7p1 Debian 8ubuntu1",
+        "extra_info": "protocol 2.0",
+        "full_version": "OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/o:linux:linux_kernel",
+            "part": "o",
+            "vendor": "linux",
+            "product": "linux_kernel",
+            "version": "",
+            "update": ""
+          }
+        ],
+        "banner": "SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1",
+        "scripts": {
+          "banner": "SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 23,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "telnet",
+        "product": "Linux telnetd",
+        "version": "",
+        "extra_info": "",
+        "full_version": "Linux telnetd",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/o:linux:linux_kernel",
+            "part": "o",
+            "vendor": "linux",
+            "product": "linux_kernel",
+            "version": "",
+            "update": ""
+          }
+        ],
+        "banner": "\\xFF\\xFD\\x18\\xFF\\xFD \\xFF\\xFD#\\xFF\\xFD'",
+        "scripts": {
+          "banner": "\\xFF\\xFD\\x18\\xFF\\xFD \\xFF\\xFD#\\xFF\\xFD'"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 25,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "smtp",
+        "product": "Postfix smtpd",
+        "version": "",
+        "extra_info": "",
+        "full_version": "Postfix smtpd",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:postfix:postfix",
+            "part": "a",
+            "vendor": "postfix",
+            "product": "postfix",
+            "version": "",
+            "update": ""
+          }
+        ],
+        "banner": "220 metasploitable.localdomain ESMTP Postfix (Ubuntu)",
+        "scripts": {
+          "banner": "220 metasploitable.localdomain ESMTP Postfix (Ubuntu)"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 53,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "domain",
+        "product": "ISC BIND",
+        "version": "9.4.2",
+        "extra_info": "",
+        "full_version": "ISC BIND 9.4.2",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:isc:bind:9.4.2",
+            "part": "a",
+            "vendor": "isc",
+            "product": "bind",
+            "version": "9.4.2",
+            "update": ""
+          }
+        ],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 80,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "http",
+        "product": "Apache httpd",
+        "version": "2.2.8",
+        "extra_info": "(Ubuntu) DAV/2",
+        "full_version": "Apache httpd 2.2.8 ((Ubuntu) DAV/2)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:apache:http_server:2.2.8",
+            "part": "a",
+            "vendor": "apache",
+            "product": "http_server",
+            "version": "2.2.8",
+            "update": ""
+          }
+        ],
+        "banner": "",
+        "scripts": {
+          "http-server-header": "Apache/2.2.8 (Ubuntu) DAV/2",
+          "http-title": "Metasploitable2 - Linux"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 111,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "rpcbind",
+        "product": "",
+        "version": "2",
+        "extra_info": "RPC #100000",
+        "full_version": "2 (RPC #100000)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [],
+        "banner": "",
+        "scripts": {
+          "rpcinfo": "\n  program version    port/proto  service\n  100000  2            111/tcp   rpcbind\n  100000  2            111/udp   rpcbind\n  100003  2,3,4       2049/tcp   nfs\n  100003  2,3,4       2049/udp   nfs\n  100005  1,2,3      46431/tcp   mountd\n  100005  1,2,3      52807/udp   mountd\n  100021  1,3,4      41019/tcp   nlockmgr\n  100021  1,3,4      48844/udp   nlockmgr\n  100024  1          55428/udp   status\n  100024  1          56494/tcp   status\n"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 139,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "netbios-ssn",
+        "product": "Samba smbd",
+        "version": "3.X - 4.X",
+        "extra_info": "workgroup: WORKGROUP",
+        "full_version": "Samba smbd 3.X - 4.X (workgroup: WORKGROUP)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:samba:samba",
+            "part": "a",
+            "vendor": "samba",
+            "product": "samba",
+            "version": "",
+            "update": ""
+          }
+        ],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 445,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "netbios-ssn",
+        "product": "Samba smbd",
+        "version": "3.X - 4.X",
+        "extra_info": "workgroup: WORKGROUP",
+        "full_version": "Samba smbd 3.X - 4.X (workgroup: WORKGROUP)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:samba:samba",
+            "part": "a",
+            "vendor": "samba",
+            "product": "samba",
+            "version": "",
+            "update": ""
+          }
+        ],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 513,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "login",
+        "product": "",
+        "version": "",
+        "extra_info": "",
+        "full_version": "",
+        "fingerprint": "",
+        "confidence": 30,
+        "cpes": [],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 514,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "tcpwrapped",
+        "product": "",
+        "version": "",
+        "extra_info": "",
+        "full_version": "",
+        "fingerprint": "",
+        "confidence": 80,
+        "cpes": [],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 2049,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "nfs",
+        "product": "",
+        "version": "2-4",
+        "extra_info": "RPC #100003",
+        "full_version": "2-4 (RPC #100003)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 2121,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "ftp",
+        "product": "ProFTPD",
+        "version": "1.3.1",
+        "extra_info": "",
+        "full_version": "ProFTPD 1.3.1",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:proftpd:proftpd:1.3.1",
+            "part": "a",
+            "vendor": "proftpd",
+            "product": "proftpd",
+            "version": "1.3.1",
+            "update": ""
+          }
+        ],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 3306,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "mysql",
+        "product": "MySQL",
+        "version": "5.0.51a-3ubuntu5",
+        "extra_info": "",
+        "full_version": "MySQL 5.0.51a-3ubuntu5",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:mysql:mysql:5.0.51a-3ubuntu5",
+            "part": "a",
+            "vendor": "mysql",
+            "product": "mysql",
+            "version": "5.0.51a-3ubuntu5",
+            "update": ""
+          }
+        ],
+        "banner": ">\\x00\\x00\\x00\\x0A5.0.51a-3ubuntu5\\x00!\\x00\\x00\\x00WpNv(_)K\\x00,\n\\xAA\\x08\\x02\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00}Vu\ni0P%fQEDf\\x00",
+        "scripts": {
+          "banner": ">\\x00\\x00\\x00\\x0A5.0.51a-3ubuntu5\\x00!\\x00\\x00\\x00WpNv(_)K\\x00,\n\\xAA\\x08\\x02\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00}Vu\ni0P%fQEDf\\x00"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 5432,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "postgresql",
+        "product": "PostgreSQL DB",
+        "version": "8.3.0 - 8.3.7",
+        "extra_info": "",
+        "full_version": "PostgreSQL DB 8.3.0 - 8.3.7",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [
+          {
+            "cpe_string": "cpe:/a:postgresql:postgresql:8.3",
+            "part": "a",
+            "vendor": "postgresql",
+            "product": "postgresql",
+            "version": "8.3",
+            "update": ""
+          }
+        ],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 5900,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "vnc",
+        "product": "VNC",
+        "version": "",
+        "extra_info": "protocol 3.3",
+        "full_version": "VNC (protocol 3.3)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [],
+        "banner": "RFB 003.003",
+        "scripts": {
+          "banner": "RFB 003.003"
+        },
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 6000,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "X11",
+        "product": "",
+        "version": "",
+        "extra_info": "access denied",
+        "full_version": "(access denied)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      },
+      {
+        "port": 8009,
+        "protocol": "tcp",
+        "state": "open",
+        "service_name": "ajp13",
+        "product": "Apache Jserv",
+        "version": "",
+        "extra_info": "Protocol v1.3",
+        "full_version": "Apache Jserv (Protocol v1.3)",
+        "fingerprint": "",
+        "confidence": 100,
+        "cpes": [],
+        "banner": "",
+        "scripts": {},
+        "ssl": null,
+        "hostname": ""
+      }
+    ],
+    "os_info": null,
+    "all_cpes": [
+      {
+        "cpe_string": "cpe:/a:vsftpd:vsftpd:2.3.4",
+        "part": "a",
+        "vendor": "vsftpd",
+        "product": "vsftpd",
+        "version": "2.3.4",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/o:linux:linux_kernel",
+        "part": "o",
+        "vendor": "linux",
+        "product": "linux_kernel",
+        "version": "",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/o:linux:linux_kernel",
+        "part": "o",
+        "vendor": "linux",
+        "product": "linux_kernel",
+        "version": "",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:postfix:postfix",
+        "part": "a",
+        "vendor": "postfix",
+        "product": "postfix",
+        "version": "",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:isc:bind:9.4.2",
+        "part": "a",
+        "vendor": "isc",
+        "product": "bind",
+        "version": "9.4.2",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:apache:http_server:2.2.8",
+        "part": "a",
+        "vendor": "apache",
+        "product": "http_server",
+        "version": "2.2.8",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:samba:samba",
+        "part": "a",
+        "vendor": "samba",
+        "product": "samba",
+        "version": "",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:samba:samba",
+        "part": "a",
+        "vendor": "samba",
+        "product": "samba",
+        "version": "",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:proftpd:proftpd:1.3.1",
+        "part": "a",
+        "vendor": "proftpd",
+        "product": "proftpd",
+        "version": "1.3.1",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:mysql:mysql:5.0.51a-3ubuntu5",
+        "part": "a",
+        "vendor": "mysql",
+        "product": "mysql",
+        "version": "5.0.51a-3ubuntu5",
+        "update": ""
+      },
+      {
+        "cpe_string": "cpe:/a:postgresql:postgresql:8.3",
+        "part": "a",
+        "vendor": "postgresql",
+        "product": "postgresql",
+        "version": "8.3",
+        "update": ""
+      }
+    ],
+    "open_services_count": 18,
+    "cpe_count": 11,
+    "scan_time": 47.15,
+    "scanned_at": "2025-12-21T16:44:16.466343"
+  }
+]

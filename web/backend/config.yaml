@@ -1,0 +1,44 @@
+app_name: AI Network Analyzer
+version: 0.1.0
+debug: false
+log_level: INFO
+log_directory: C:\Users\Ghulam Mohayudin\Projects\Others\AI-Network-Analyzer\logs
+scan:
+  default_ports: 21-23,25,53,80,110,111,135,139,143,443,445,993,995,1723,3306,3389,5900,8080
+  top_ports: 100
+  timeout: 2.0
+  max_threads: 100
+  scan_delay: 0.0
+  tcp_scan: true
+  udp_scan: false
+  service_detection: true
+  os_detection: false
+  timing_template: 3
+cve:
+  nvd_api_key: null
+  nvd_api_url: https://services.nvd.nist.gov/rest/json/cves/2.0
+  requests_per_minute: 5
+  request_delay: 6.0
+  cache_enabled: true
+  cache_ttl_hours: 24
+  cache_directory: C:\Users\Ghulam Mohayudin\Projects\Others\AI-Network-Analyzer\data\cve_cache
+  offline_db_path: C:\Users\Ghulam Mohayudin\Projects\Others\AI-Network-Analyzer\data\cve_offline.db
+  use_offline_fallback: true
+ai:
+  openai_api_key: null
+  openai_model: gpt-4o-mini
+  openai_max_tokens: 1000
+  use_local_llm: false
+  ollama_host: http://localhost:11434
+  ollama_model: llama3.2
+  enable_ai_analysis: true
+  include_remediation: true
+report:
+  output_directory: C:\Users\Ghulam Mohayudin\Projects\Others\AI-Network-Analyzer\reports
+  default_format: html
+  company_name: AI Network Analyzer
+  company_logo: null
+  include_executive_summary: true
+  include_technical_details: true
+  include_remediation: true
+  max_cves_per_service: 10
