@@ -95,7 +95,7 @@ export default function HistoryPage() {
                             <span className="text-xl">🛡️</span>
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold text-white">Network Vulnerability scanner tool with integrated Ai Driven Threat intelligence</h1>
+                            <h1 className="text-xl font-bold text-white">Network Vulnerability Scanner Tool with Integrated AI Driven Threat Intelligence</h1>
                             <p className="text-xs text-slate-400">Scan History</p>
                         </div>
                     </div>
