@@ -1,0 +1,15 @@
+[
+  {
+    "ip_address": "142.251.38.14",
+    "hostname": "google.com",
+    "total_cves": 0,
+    "critical_count": 0,
+    "high_count": 0,
+    "risk_score": 0.0,
+    "risk_level": "MINIMAL",
+    "vulnerable_services": [],
+    "os_cves": [],
+    "scan_time": 0.0,
+    "scanned_at": "2025-12-26T15:02:40.410377"
+  }
+]

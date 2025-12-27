@@ -2,7 +2,7 @@
  * API Client for AI Network Analyzer Backend
  */
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://51.20.8.177';
 
 export interface HealthResponse {
   status: string;

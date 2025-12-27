@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://51.20.8.177';
 
 interface ScanSummary {
     scan_id: string;
@@ -94,7 +94,7 @@ export default function HistoryPage() {
                             <span className="text-xl">🛡️</span>
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold text-white">AI Network Analyzer</h1>
+                            <h1 className="text-xl font-bold text-white">Network Vulnerability scanner tool with integrated Ai Driven Threat intelligence</h1>
                             <p className="text-xs text-slate-400">Scan History</p>
                         </div>
                     </div>

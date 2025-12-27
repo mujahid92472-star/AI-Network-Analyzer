@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://51.20.8.177';
 
 // Severity badge styles - bold colors matching HTML report
 const severityBadge: Record<string, string> = {
@@ -159,7 +159,7 @@ export default function Dashboard() {
               <span className="text-xl">🛡️</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">AI Network Analyzer</h1>
+              <h1 className="text-xl font-bold text-white">Network Vulnerability scanner tool with integrated Ai Driven Threat intelligence</h1>
               <p className="text-xs text-slate-400">Live Vulnerability Scanner</p>
             </div>
           </div>
