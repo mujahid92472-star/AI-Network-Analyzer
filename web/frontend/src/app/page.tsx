@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://51.20.8.177';
+const API_BASE = 'http://51.20.8.177';
 
 // Severity badge styles - bold colors matching HTML report
 const severityBadge: Record<string, string> = {

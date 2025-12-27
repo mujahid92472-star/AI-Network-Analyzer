@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://51.20.8.177';
+const API_BASE = 'http://51.20.8.177';
 
 const severityBadge: Record<string, string> = {
     CRITICAL: 'bg-red-500 text-white border-red-600',
