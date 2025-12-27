@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
-// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
-const API_BASE = '';
+// Production HTTPS API
+const API_BASE = 'https://api.ai-network-analyzer.store';
 
 interface ScanSummary {
     scan_id: string;
@@ -95,7 +95,7 @@ export default function HistoryPage() {
                             <span className="text-xl">🛡️</span>
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold text-white">Network Vulnerability Scanner Tool with Integrated AI Driven Threat Intelligence</h1>
+                            <h1 className="text-xl font-bold text-white">Network Vulnerability scanner tool with integrated Ai Driven Threat intelligence</h1>
                             <p className="text-xs text-slate-400">Scan History</p>
                         </div>
                     </div>
@@ -218,6 +218,16 @@ export default function HistoryPage() {
                                                 <div className="w-4 h-4 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
                                                 {scan.progress}%
                                             </div>
+                                        )}
+
+                                        {scan.status === 'failed' && (
+                                            <button
+                                                onClick={() => deleteScan(scan.scan_id)}
+                                                className="px-3 py-1 bg-red-600 hover:bg-red-500 text-white rounded text-sm"
+                                                title="Delete failed scan"
+                                            >
+                                                🗑️ Delete
+                                            </button>
                                         )}
                                     </div>
                                 </div>

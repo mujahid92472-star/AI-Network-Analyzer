@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
-// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
-const API_BASE = '';
+// Production HTTPS API
+const API_BASE = 'https://api.ai-network-analyzer.store';
 
 const severityBadge: Record<string, string> = {
     CRITICAL: 'bg-red-500 text-white border-red-600',

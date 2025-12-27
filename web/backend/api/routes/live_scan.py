@@ -164,7 +164,16 @@ async def get_scan_status(scan_id: str):
 
 @router.get("/live")
 async def list_scans():
-    """List all scans."""
+    """List all scans, sorted by newest first."""
+    # Always reload from disk to ensure consistency (handles multi-worker environments)
+    global _active_scans
+    
+    # Clear and reload from disk
+    _active_scans.clear()
+    _load_all_scans()
+    
+    # Sort by scan_id descending (scan_id contains timestamp: live_YYYYMMDD_HHMMSS_xxx)
+    sorted_scans = sorted(_active_scans.values(), key=lambda s: s.scan_id, reverse=True)
     return {
         "scans": [
             {
@@ -173,9 +182,11 @@ async def list_scans():
                 "message": s.message,
                 "progress": s.progress
             }
-            for s in _active_scans.values()
+            for s in sorted_scans
         ]
     }
+
+
 
 
 async def run_scan_task(scan_id: str, target: str, max_cves: int, skip_ai: bool):

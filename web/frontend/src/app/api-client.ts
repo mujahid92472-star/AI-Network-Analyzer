@@ -2,8 +2,8 @@
  * API Client for AI Network Analyzer Backend
  */
 
-// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
-const API_BASE = '';
+// Production HTTPS API
+const API_BASE = 'https://api.ai-network-analyzer.store';
 
 export interface HealthResponse {
   status: string;
