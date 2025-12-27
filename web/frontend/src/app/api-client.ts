@@ -2,7 +2,8 @@
  * API Client for AI Network Analyzer Backend
  */
 
-const API_BASE = 'http://51.20.8.177';
+// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
+const API_BASE = '';
 
 export interface HealthResponse {
   status: string;

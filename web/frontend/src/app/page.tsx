@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const API_BASE = 'http://51.20.8.177';
+// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
+// The proxy route at /api/[...path] forwards to the backend
+const API_BASE = '';
 
 // Severity badge styles - bold colors matching HTML report
 const severityBadge: Record<string, string> = {

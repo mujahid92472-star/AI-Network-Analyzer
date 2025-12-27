@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
-const API_BASE = 'http://51.20.8.177';
+// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
+const API_BASE = '';
 
 interface ScanSummary {
     scan_id: string;

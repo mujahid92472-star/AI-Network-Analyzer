@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
-const API_BASE = 'http://51.20.8.177';
+// API calls go through Next.js API proxy to avoid CORS/HTTPS issues
+const API_BASE = '';
 
 const severityBadge: Record<string, string> = {
     CRITICAL: 'bg-red-500 text-white border-red-600',
