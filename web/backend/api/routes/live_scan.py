@@ -342,18 +342,21 @@ async def run_scan_task(scan_id: str, target: str, max_cves: int, skip_ai: bool)
             "recommendations": recommendations
         }
         
+        # Prepare final status
         _active_scans[scan_id].status = "complete"
         _active_scans[scan_id].message = f"Scan complete! Found {total_cves} vulnerabilities."
         _active_scans[scan_id].progress = 100
         _active_scans[scan_id].results = results
         
-        # Save completed scan to disk
+        # Save to disk FIRST (before any client can request the results)
         _save_scan(scan_id, _active_scans[scan_id])
         
     except Exception as e:
         _active_scans[scan_id].status = "failed"
         _active_scans[scan_id].message = f"Scan failed: {str(e)}"
         _active_scans[scan_id].progress = 100
+        # Also save failed scans so they persist
+        _save_scan(scan_id, _active_scans[scan_id])
         print(f"Scan error: {e}")
 
 
